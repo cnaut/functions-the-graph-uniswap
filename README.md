@@ -50,7 +50,7 @@ In this use case, the reason for choosing to swap Wrapped matic to Wrapped Ether
 8. Deploy and verify the client contract to an actual blockchain network by running:<br>`npx hardhat functions-deploy-client --network polygonMumbai --verify true`<br>**Note**: Make sure `POLYGONSCAN_API_KEY` is set if using `--verify true`, depending on which network is used.<br><br>
 9. Create, fund & authorize a new Functions billing subscription by running:<br> `npx hardhat functions-sub-create --network polygonMumbai --amount 5 --contract 0xDeployed_client_contract_address_here`<br>**Note**: Ensure your wallet has 5 LINK in your balance before running this command. Testnet LINK can be obtained at <a href="https://faucets.chain.link/">faucets.chain.link</a>.<br><br>
 10. Transfer at least 0.1 WMATIC to contract FunctionsConsumer to make sure there is some WMATIC tokens in balance can be swapped. You need to add WMATIC into your Metamask before transfering, and the address of WMATIC on Polygon Mumbai is `0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889`. <br> Matic on Mumbai can be obtained at [alchemy faucet](https://mumbaifaucet.com/), and Matic can be swapped to Wrapped Matic(WMATIC) at [Uniswap on Mumbai](https://app.uniswap.org/#/swap). <br><br>
-11. Make an on-chain request by running:<br>`npx hardhat functions-request --network polygonMumbai --contract 0xDeployed_client_contract_address_here --subid subscription_id_number_here`
+11. Make an on-chain request by running:<br>`npx hardhat functions-request --network polygonMumbai --contract 0xDeployed_client_contract_address_here --subid subscription_id_number_here --gaslimit 300000`. Please make sure you add the parameter `--gaslimit` and set it as 300k. 
 
 # For Beginners
 
