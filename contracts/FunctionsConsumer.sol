@@ -78,6 +78,10 @@ contract FunctionsConsumer is FunctionsClient, ConfirmedOwner {
    * Either response or error parameter will be set, but never both
    */
   function fulfillRequest(bytes32 requestId, bytes memory response, bytes memory err) internal override {
+    // make sure the function only executes on Polygon testnet, please remove this if you want to deploy on other networks
+    if (block.chainid != 80001) {
+      return;
+    }
     latestResponse = response;
     latestError = err;
     uint256 liquidityDrop = uint256(bytes32(response));
